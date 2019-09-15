@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: cardsp2
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/cards?createDatabaseIfNotExist=true
+    username: cards
+    password: cards
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
+  ## Hibernate Logging
+  logging:
+    level:
+      org.hibernate.SQL: DEBUG
+
