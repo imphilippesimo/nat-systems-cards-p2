@@ -36,7 +36,7 @@ public class CardIntTest {
 
     @Test
     public void should_create() {
-        Card card = new Card("As", Category.PIQUE);
+        Card card = new Card("As", Category.PIQUE, "");
         card = cardService.createCard(card);
         Long createdCardId = card.getId();
         assertThat(createdCardId).isNotNull();

@@ -2,13 +2,13 @@ package com.natsystems.cardsp2;
 
 import com.natsystems.cardsp2.entity.Card;
 import com.natsystems.cardsp2.entity.Category;
+import com.natsystems.cardsp2.entity.Utils;
 import com.natsystems.cardsp2.service.CardService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @SpringBootApplication
 public class Cardsp2Application {
@@ -28,7 +28,9 @@ public class Cardsp2Application {
     public void constructCards() {
         if (cardService.getCards().size() == 0) {
             String label;
+            List<String> images;
             for (Category cat : Category.values()) {
+                 images = Utils.images().get(cat);
                 for (int i = 1; i <= 13; i++) {
                     if (i == 1) {
                         label = "As";
@@ -41,7 +43,7 @@ public class Cardsp2Application {
                     } else {
                         label = String.valueOf(i);
                     }
-                    cardService.createCard(new Card(label, cat));
+                    cardService.createCard(new Card(label, cat, images.get(i - 1)));
                 }
             }
 

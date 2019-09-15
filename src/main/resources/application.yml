@@ -19,3 +19,5 @@ spring:
     level:
       org.hibernate.SQL: DEBUG
 
+server:
+  port: 9000

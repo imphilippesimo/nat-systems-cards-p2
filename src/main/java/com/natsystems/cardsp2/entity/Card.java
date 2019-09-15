@@ -13,13 +13,15 @@ public class Card {
     private Long id;
     private String label;
     private Category category;
+    private String imageUrl;
 
     public Card() {
     }
 
-    public Card(String label, Category category) {
+    public Card(String label, Category category, String imageUrl) {
         this.label = label;
         this.category = category;
+        this.imageUrl = imageUrl;
     }
 
     public String getLabel() {
@@ -36,6 +38,14 @@ public class Card {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {
